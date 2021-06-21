@@ -1,4 +1,58 @@
-# Byte-compiled / optimized / DLL files
+# linux
+*~
+.directory # KDE directory preferences
+.Trash-* # Linux trash folder which might appear on any partition or disk
+
+# macos
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon # Icon must end with two \r
+._* # Thumbnails
+.DocumentRevisions-V100 # Files that might appear in the root of a volume
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.AppleDB # Directories potentially created on remote AFP share
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab # Windows Installer files
+*.msi
+*.msm
+*.msp
+*.lnk # Windows shortcuts
+
+# idea
+.idea
+*.iml
+out
+gen
+
+# sqlite
+*.db
+*.sqlite3
+
+
+# java
+*.class
+.mtj.tmp/ # Mobile Tools for Java (J2ME)
+target/ # Package Files #
+*.jar
+*.war
+*.ear
+hs_err_pid* # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+
+# python byte-compiled / optimized / dll files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,7 +60,7 @@ __pycache__/
 # C extensions
 *.so
 
-# Distribution / packaging
+# python Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -27,17 +81,11 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
+# python Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# python Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
@@ -50,23 +98,6 @@ coverage.xml
 *.py,cover
 .hypothesis/
 .pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
 
 # Sphinx documentation
 docs/_build/
@@ -101,7 +132,7 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Virtual Environments
 .env
 .venv
 env/
@@ -127,3 +158,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# shared folders
+dropbox_shared*/
+github_shared*/
+gdrive_shared*/
+
+# external references
+\!rel_*/
+\!ref_*/
+
+# ctag generated file
+tags
+.tags

@@ -1,2 +1,5 @@
-# media-pruner
-Python program to trim-and-join A/V media files using ffmpeg
+# concatrim
+
+Python program to trim-then-concatenate A/V media files using ffmpeg.
+
+This version is only a placeholder for future pypi release.
