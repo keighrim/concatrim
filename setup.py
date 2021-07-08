@@ -8,7 +8,7 @@ with open('requirements.txt') as requirements:
 
 setup(
     name='concatrim',
-    version='0.0.1.dev2',
+    version='1.0.0',
     python_requires='>=3',
     packages=['concatrim'],
     url='https://github.com/keighrim/concatrim',
