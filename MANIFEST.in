@@ -1,0 +1,4 @@
+# only copied in sdist and be used when building
+include ./VERSION
+include ./requirements.txt
+
