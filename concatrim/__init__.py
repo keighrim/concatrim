@@ -150,6 +150,10 @@ class Concatrimmer(object):
             self._span_trm_ends.append(ori_end - ori_start + trimmed_start)
         
     def _convert(self, query_timepoint, from_original_to_trimmed: bool = True) -> Optional[int]:
+        
+        # when no trimming is done, just return input
+        if len(list(self.spans())) == 0:
+            return query_timepoint
 
         # make sure spans are properly mapped
         if len(self._span_trm_starts) == 0 or len(self._span_trm_ends) == 0:

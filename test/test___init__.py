@@ -6,7 +6,7 @@ class TestConcatrimmer(unittest.TestCase):
 
     def setUp(self):
         self.pruner = concatrim.Concatrimmer('../README.md', 100)
-
+        
     def test_is_overlapping(self):
         self.assertFalse(self.pruner.is_overlapping((1, 2), (3, 4)))
         self.assertFalse(self.pruner.is_overlapping((3, 4), (1, 2)))
@@ -31,7 +31,12 @@ class TestConcatrimmer(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.pruner.add_spans([1, 4], [0, 10])
         self.pruner._empty_spans()
-    
+
+    def test_convert_wo_trim(self):
+        query = 500
+        self.assertEqual(query, self.pruner.conv_to_trimmed(query))
+        self.assertEqual(query, self.pruner.conv_to_original(query))
+        
     def test_convert(self):
         self.pruner.pad_len = 100
         self.pruner.add_spans((100, 200))
