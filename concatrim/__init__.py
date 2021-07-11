@@ -74,17 +74,30 @@ class Concatrimmer(object):
     def spans(self):
         return zip(self._span_ori_starts, self._span_ori_ends)
 
-    def concatrim(self, out_dir: str, prefix: str = None, suffix: str = None, dryrun=False) -> None:
-        self._concatrim_audio(out_dir, prefix, suffix, dryrun)
+    def concatrim(self, out_dir: str, prefix: str = None, suffix: str = None, dryrun=False) -> str:
+        """
+        Performs trim-then-concatenate using ffmpeg. 
+        The new file will be named exactly identical to the original, 
+        unless ``prefix`` and/or ``suffix`` are set. 
+        
+        :param out_dir: directory name to place output file
+        :param prefix: prefix to attach in front of the new file name 
+        :param suffix: suffix to attach at the end of the new file name (before the extension)
+        :param dryrun: only prints the ffmpeg cmd to run (for debugging)
+        :return: the name of the trimmed file
+        """
+        return self._concatrim_audio(out_dir, prefix, suffix, dryrun)
 
-    def _concatrim_audio(self, out_dir: str, prefix: str = None, suffix: str = None, dryrun=False) -> None:
+    def _concatrim_audio(self, out_dir: str, prefix: str = None, suffix: str = None, dryrun=False) -> str:
         """
         Method to actually run ffmpeg to generate a new media file in the out_dir. 
         The new file will be named exactly identical to the original, 
         unless ``prefix`` and/or ``suffix`` are set. 
+        
         :param out_dir: directory name to place output file
         :param prefix: prefix to attach in front of the new file name 
         :param suffix: suffix to attach at the end of the new file name (before the extension)
+        :return: the name of the trimmed audio file
         """
         if not os.path.exists(self.sourcefile):
             raise FileNotFoundError(f"source file {self.sourcefile} does not exist!")
@@ -117,6 +130,7 @@ class Concatrimmer(object):
                     ffmpeg_cmd.run(overwrite_output=True, cmd=self.ffmpeg_cmd)
                 else:
                     ffmpeg_cmd.run(overwrite_output=True)
+        return out_fname
 
     @classmethod
     def is_overlapping(cls, span1, spane2):
